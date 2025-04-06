@@ -1,0 +1,24 @@
+{
+  "name": "steam-leaderboard-moderation",
+  "version": "1.0.0",
+  "description": "A web application for viewing and moderating Steam leaderboards.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "steam",
+    "leaderboard",
+    "moderation",
+    "express"
+  ],
+  "author": "Stefaaan06",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Leaderboard Viewer & Moderator</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Steam Leaderboard Moderation V1</h1>
+    </header>
+
+    <section class="controls">
+        <div class="form-group">
+            <label for="appidSelect">App ID:</label>
+            <select id="appidSelect">
+                <option value="3526250">Mik Playtest</option>
+            </select>
+            <button id="loadLeaderboardsBtn">Load Leaderboards</button>
+        </div>
+        <div class="form-group">
+            <label for="leaderboardSelect">Leaderboards:</label>
+            <select id="leaderboardSelect">
+                <option value="">-- Select a Leaderboard --</option>
+            </select>
+            <button id="loadEntriesBtn">Load Leaderboard Entries</button>
+        </div>
+
+        <div class="pagination-buttons">
+            <button id="prevPageBtn">Previous</button>
+            <span id="pageInfo"></span>
+            <button id="nextPageBtn">Next</button>
+        </div>
+    </section>
+
+    <section class="table-section">
+        <table class="leaderboard-table" id="entriesTable">
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Rows will be populated dynamically -->
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<footer>
+    <p>Leaderboard Viewer & Moderator</p>
+    <a href="https://twitter.com/Stefaaan06" target=_blank"> Created by @Stefaaan06 </a>
+    <p>v1.0</p>
+    <p>License: MIT</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
