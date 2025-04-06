@@ -1,6 +1,8 @@
 # Steam-Leaderboard-Moderation
 
 A web application written in Node.js interfacing with the Steam API, allowing for easy removal and editing of leaderboard entries since Steam itself lacks this feature.
+
+![showcase.png](img/showcase.png)
 ## Features
 
 - View Steam leaderboards
