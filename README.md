@@ -21,7 +21,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/steam-leaderboard-moderation.git
+    git clone https://github.com/Stefaaan06/Steam-Leaderboard-Moderation.git
     cd steam-leaderboard-moderation
     ```
 
