@@ -22,7 +22,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 1. Clone the repository:
     ```sh
     git clone https://github.com/Stefaaan06/Steam-Leaderboard-Moderation.git
-    cd steam-leaderboard-moderation
+    cd Steam-Leaderboard-Moderation
     ```
 
 2. Install dependencies:
