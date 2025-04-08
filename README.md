@@ -1,4 +1,5 @@
 # Steam-Leaderboard-Moderation
+```Version 1.1```
 
 A web application written in Node.js interfacing with the Steam API, allowing for easy removal and editing of leaderboard entries since Steam itself lacks this feature.
 
@@ -88,6 +89,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 - [Steam Leaderboards API](https://partner.steamgames.com/doc/webapi/ISteamLeaderboards)
 - [Steam User API](https://partner.steamgames.com/doc/webapi/ISteamUser)
 
-## License
+## License & Contribution
 
 This project is licensed under the MIT License.
+Any contribution is welcome and will be under the same license.
