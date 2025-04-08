@@ -1,6 +1,6 @@
 {
   "name": "steam-leaderboard-moderation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A web application for viewing and moderating Steam leaderboards.",
   "main": "server.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "axios": "^1.8.4",
     "body-parser": "^2.2.0",
     "dotenv": "^16.4.7",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "tailwinds": "^0.0.0"
   }
 }

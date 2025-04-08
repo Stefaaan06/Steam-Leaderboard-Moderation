@@ -1,62 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Leaderboard Viewer & Moderator</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <title>Steam Leaderboard Moderation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<div class="container">
-    <header>
-        <h1>Steam Leaderboard Moderation V1</h1>
+<body class="bg-gray-50 text-gray-800">
+<div class="max-w-5xl mx-auto px-4 py-6">
+    <header class="text-center mb-6">
+        <h1 class="text-3xl font-bold">Steam Leaderboard Moderation</h1>
     </header>
 
-    <section class="controls">
-        <div class="form-group">
-            <label for="appidSelect">App ID:</label>
-            <select id="appidSelect">
-                <option value="3526250">Mik Playtest</option>
-            </select>
-            <button id="loadLeaderboardsBtn">Load Leaderboards</button>
-        </div>
-        <div class="form-group">
-            <label for="leaderboardSelect">Leaderboards:</label>
-            <select id="leaderboardSelect">
-                <option value="">-- Select a Leaderboard --</option>
-            </select>
-            <button id="loadEntriesBtn">Load Leaderboard Entries</button>
+    <!-- ERROR MESSAGES -->
+    <div id="errorMessages" class="hidden p-3 mb-4 bg-red-100 text-red-800 border border-red-300 rounded"></div>
+
+    <section class="mb-6 p-4 bg-white rounded-md shadow">
+        <div class="flex flex-col sm:flex-row sm:items-end gap-4 mb-4">
+            <div class="flex flex-col">
+                <label for="appidSelect" class="font-medium mb-1">App ID:</label>
+                <select id="appidSelect" class="w-52 border border-gray-300 rounded p-2">
+                    <option value="3526250">Mik Playtest</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+            <div class="flex flex-col">
+                <label for="customAppidInput" class="font-medium mb-1"></label>
+                <input type="text" id="customAppidInput" class="w-52 border border-gray-300 rounded p-2" placeholder="123456" style="display: none;"/>
+            </div>
+            <div class="mt-4 sm:mt-0 flex gap-2">
+                <button id="loadLeaderboardsBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">
+                    Load Leaderboards
+                </button>
+                <button id="reloadAllDataBtn" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-200">
+                    Reload All Data
+                </button>
+            </div>
         </div>
 
-        <div class="pagination-buttons">
-            <button id="prevPageBtn">Previous</button>
-            <span id="pageInfo"></span>
-            <button id="nextPageBtn">Next</button>
+        <div class="flex flex-col sm:flex-row sm:items-end gap-4">
+            <div class="flex flex-col">
+                <label for="leaderboardSelect" class="font-medium mb-1">
+                    Leaderboards:
+                </label>
+                <select id="leaderboardSelect" class="w-80 border border-gray-300 rounded p-2">
+                    <option value="">-- Select a Leaderboard --</option>
+                </select>
+            </div>
+            <div class="mt-4 sm:mt-0">
+                <button id="loadEntriesBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">
+                    Load Leaderboard Entries
+                </button>
+            </div>
         </div>
     </section>
 
-    <section class="table-section">
-        <table class="leaderboard-table" id="entriesTable">
+    <div id="paginationBox" class="hidden mt-5 p-3 bg-white rounded-md shadow flex justify-center items-center">
+        <button id="prevPageBtn" class="px-3 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-200">
+            Previous
+        </button>
+        <span id="pageInfo" class="mx-2 text-gray-700"></span>
+        <button id="nextPageBtn" class="px-3 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-200">
+            Next
+        </button>
+    </div>
+
+    <section class="p-4 mt-5 bg-white rounded-md shadow mb-6">
+        <table class="min-w-full border-collapse" id="entriesTable">
             <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Player</th>
-                <th>Score</th>
-                <th>Actions</th>
+            <tr class="bg-blue-600 text-white">
+                <th class="p-2 text-left">Rank</th>
+                <th class="p-2 text-left">Player</th>
+                <th class="p-2 text-left">Score</th>
+                <th class="p-2 text-left">Actions</th>
             </tr>
             </thead>
             <tbody>
-            <!-- Rows will be populated dynamically -->
+            <!-- JS will populate rows -->
             </tbody>
         </table>
     </section>
 </div>
 
-<footer>
-    <p>Leaderboard Viewer & Moderator</p>
-    <a href="https://twitter.com/Stefaaan06" target=_blank"> Created by @Stefaaan06 </a>
-    <p>v1.0</p>
+<footer class="bg-gray-100 py-4 text-center text-sm text-gray-600">
+    <p>Leaderboard Viewer & Moderator — v1.1</p>
     <p>License: MIT</p>
+    <a href="https://twitter.com/Stefaaan06" target="_blank" class="text-blue-600 hover:text-blue-500">
+        Created by @Stefaaan06
+    </a>
 </footer>
+
+<div
+        id="modalOverlay"
+        class="fixed inset-0 bg-black/50 z-50 hidden justify-center items-center"
+>
+    <div class="bg-white w-full max-w-md rounded-md p-4">
+        <h2 id="modalTitle" class="text-xl font-semibold mb-3">Modal Title</h2>
+        <div id="modalBody" class="mb-4"></div>
+        <div class="flex justify-end space-x-2">
+            <button id="modalCancelBtn" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-200">
+                Cancel
+            </button>
+            <button id="modalConfirmBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">
+                Confirm
+            </button>
+        </div>
+    </div>
+</div>
 
 <script src="main.js"></script>
 </body>

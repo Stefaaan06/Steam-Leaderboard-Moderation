@@ -37,13 +37,14 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
     How to get your API key: https://partner.steamgames.com/doc/webapi_overview/auth
 
 
-4. Update index.html with your own appID - 
+4. (optional) Update index.html with your own appID - 
    The appID in index.html is currently configured for my own game. Replace it with your own appID. You can also add multiple options
     ```html
     <select id="appidSelect">
         <option value="YOUR APP ID">YOUR APP NAME</option>
     </select>
     ```
+    You can also input an appID when selecting "Custom" in the dropdown.
 
 5. Start the server:
     ```sh
@@ -60,7 +61,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
 ### Viewing Leaderboards
 
-1. Select an App ID from the dropdown.
+1. Select an App ID from the dropdown or input your own.
 2. Click "Load Leaderboards" to fetch the leaderboards for the selected App ID.
 3. Select a leaderboard from the dropdown.
 4. Click "Load Leaderboard Entries" to view the entries.
@@ -75,12 +76,18 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
 1. Click the "Remove" button next to the entry you want to remove.
 2. Confirm the removal.
+3. (this does not actually remove the entry but replaces it with a very large value)
+
+### Known Issues
+1. When Removing / Editing entries the displayed entries on the website don´t update properly.
+2. Reload button does not reload cache
 
 ## Links
 
 - [Steamworks Web API Keys](https://partner.steamgames.com/doc/webapi_overview)
 - [Steam Leaderboards API](https://partner.steamgames.com/doc/webapi/ISteamLeaderboards)
 - [Steam User API](https://partner.steamgames.com/doc/webapi/ISteamUser)
+
 ## License
 
 This project is licensed under the MIT License.

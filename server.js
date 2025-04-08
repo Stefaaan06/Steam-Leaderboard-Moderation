@@ -1,6 +1,3 @@
-// THIS IS THE FILE YOU SHOULD RUN WITH "node server.js"
-
-
 require('dotenv').config(); // Loads the .env file
 const express = require('express');
 const path = require('path');
