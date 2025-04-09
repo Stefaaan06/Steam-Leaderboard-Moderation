@@ -4,11 +4,6 @@
 A web application written in Node.js interfacing with the Steam API, allowing for easy removal and editing of leaderboard entries since Steam itself lacks this feature.
 
 ![showcase.png](img/showcase.png)
-## Features
-
-- View Steam leaderboards
-- Edit leaderboard entries
-- Remove leaderboard entries
 
 ## Setup Guide
 
@@ -35,17 +30,17 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
     ```env
     STEAM_PUBLISHER_API_KEY=your_api_key_here
     ```
-    How to get your API key: https://partner.steamgames.com/doc/webapi_overview/auth
+   How to get your API key: https://partner.steamgames.com/doc/webapi_overview/auth
 
 
-4. (optional) Update index.html with your own appID - 
+4. (optional) Update index.html with your own appID -
    The appID in index.html is currently configured for my own game. Replace it with your own appID. You can also add multiple options
     ```html
     <select id="appidSelect">
         <option value="YOUR APP ID">YOUR APP NAME</option>
     </select>
     ```
-    You can also input an appID when selecting "Custom" in the dropdown.
+   You can also input an appID when selecting "Custom" in the dropdown.
 
 5. Start the server:
     ```sh
@@ -55,7 +50,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 6. Open your browser and navigate to `http://localhost:3000`.
 
 
-7. You can also optionally run this on an actual server. 
+7. You can also optionally run this on an actual server.
 
 ## Usage Guide
 
@@ -81,7 +76,6 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
 ### Known Issues
 1. When Removing / Editing entries the displayed entries on the website don´t update properly.
-2. Reload button does not reload cache
 
 ## Links
 
