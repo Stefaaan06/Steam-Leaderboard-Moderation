@@ -28,10 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .getElementById("loadEntriesBtn")
         .addEventListener("click", onLoadEntriesClick);
     document
-        .getElementById("reloadAllDataBtn")
-        .addEventListener("click", reloadAllData);
-
-    document
         .getElementById("prevPageBtn")
         .addEventListener("click", onPrevPage);
     document
@@ -414,9 +410,3 @@ async function doRemoveEntry() {
     }
 }
 
-async function reloadAllData() {
-    clearErrors();
-    document.querySelector("#entriesTable tbody").innerHTML = "";
-    await onLoadLeaderboardsClick();
-    await loadCurrentPage();
-}

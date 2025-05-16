@@ -62,13 +62,7 @@ router.get('/getLeaderboardEntries', async (req, res) => {
             rank: e.rank
         }));
 
-        // Apply removals
-        entries = entries.filter(entry => {
-            const key = `${leaderboardid}-${entry.steamid}`;
-            return !removedEntries[key];
-        });
-
-        // Apply edits
+        // Apply edits / removals
         entries = entries.map(entry => {
             const key = `${leaderboardid}-${entry.steamid}`;
             if (moderationEdits[key] !== undefined) {

@@ -46,11 +46,12 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
     ```sh
     npm start
     ```
+      
 
-6. Open your browser and navigate to `http://localhost:3000`.
+6. The website will run on `http://localhost:3000`.
 
 
-7. You can also optionally run this on an actual server.
+7. You can also optionally run this on an actual server with an actual run configuration.
 
 ## Usage Guide
 
@@ -72,10 +73,14 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
 1. Click the "Remove" button next to the entry you want to remove.
 2. Confirm the removal.
-3. (this does not actually remove the entry but replaces it with a very large value)
+3. **(this does not actually remove the entry but replaces it with a very large value)**
+   -> this only makes sense for ASCENDING score boards. **not for descending ones**. The removal value can be edited in moderation.js "const removalScore = 9999999999;"
+
 
 ### Known Issues
 1. When Removing / Editing entries the displayed entries on the website don´t update properly.
+2. No full support for Descending leaderboards yet
+3. The website stashes your changes in local storage on purpose. This is because steam leaderboards may take some time to update.
 
 ## Links
 
