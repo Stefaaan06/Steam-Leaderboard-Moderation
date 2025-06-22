@@ -23,13 +23,13 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
     cd Steam-Leaderboard-Moderation
     ```
 
-3.  Install dependencies:
+2.  Install dependencies:
 
     ```sh
     npm install
     ```
 
-4.  Create a `.env` file in the root directory and add your Steam Publisher API Key:
+3.  Create a `.env` file in the root directory and add your Steam Publisher API Key:
 
     ```env
     STEAM_PUBLISHER_API_KEY=your_api_key_here
@@ -37,7 +37,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
    How to get your API key: visit https://partner.steamgames.com/doc/webapi_overview/auth.
 
-5.  (Optionally) Update `index.html` with your own `appID`:
+4.  (Optionally) Update `index.html` with your own `appID`:
 
     The `appID` in `index.html` is currently configured for my own game. Replace it with your own `appID`. You can also add multiple options:
    
@@ -49,15 +49,15 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
     You can also input an appID when selecting "Custom" in the dropdown.
 
-6.  Start the server:
+5.  Start the server:
 
     ```sh
     npm start
     ```
 
-7.  The website will run on `http://localhost:3000`.
+6.  The website will run on `http://localhost:3000`.
 
-8.  You can also optionally run this on an actual server with an actual run configuration.
+7.  You can also optionally run this on an actual server with an actual run configuration.
 
 ## Usage Guide
 
