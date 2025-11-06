@@ -1,7 +1,7 @@
 # Steam-Leaderboard-Moderation
-```Version 1.1```
+```Version 1.2```
 
-A web application written in Node.js interfacing with the Steam API, allowing for easy removal and editing of leaderboard entries since Steam itself lacks this feature.
+A simple web application written in Node.js interfacing with the Steam API, allowing for easy removal and editing of leaderboard entries since the Steamworks (UI) itself lacks this feature.
 
 ![showcase.png](img/showcase.png)
 
@@ -30,7 +30,7 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
     ```env
     STEAM_PUBLISHER_API_KEY=your_api_key_here
     ```
-   How to get your API key: https://partner.steamgames.com/doc/webapi_overview/auth
+   How to get your API key: https://partner.steamgames.com/doc/webapi_overview/auth (dont confuse with User Keys)
 
 
 4. (optional) Update index.html with your own appID -
@@ -48,13 +48,10 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
     ```
       
 
-6. The website will run on `http://localhost:3000`.
+6. The website will run on `http://localhost:3000` if not configured differently.
 
-
-7. You can also optionally run this on an actual server with an actual run configuration.
 
 ## Usage Guide
-
 
 ### Viewing Leaderboards
 
@@ -73,14 +70,27 @@ A web application written in Node.js interfacing with the Steam API, allowing fo
 
 1. Click the "Remove" button next to the entry you want to remove.
 2. Confirm the removal.
-3. **(this does not actually remove the entry but replaces it with a very large value)**
-   -> this only makes sense for ASCENDING score boards. **not for descending ones**. The removal value can be edited in moderation.js "const removalScore = 9999999999;"
 
+### Note to Editing and Removing
+- The Steam API may take some time to reflect changes made to leaderboard entries. The application stores changes in local storage (memoryStore.js) so the modifications are visible immediately. While the program does try to display issues with changes, changes MAY happen.
 
-### Known Issues
-1. When Removing / Editing entries the displayed entries on the website don´t update properly.
+## Known Issues
+1. When Removing / Editing entries the displayed entries on the website dont update properly.
 2. No full support for Descending leaderboards yet
 3. The website stashes your changes in local storage on purpose. This is because steam leaderboards may take some time to update.
+4. Due to steam API limitations: you CANNOT edit an entry for a User that doesnt own the game anymore - only deleting will work.
+5. When deleting / editing entries the pagination doesnt update properly. (deleting all entries on a page makes it empty)
+6. Users are sometimes on 2 pages at once - (same problem as above)
+
+## TODO: 
+1. Batch Delete
+2. User Management (view one users entires and manage them)
+3. Leaderboard Creation & Management
+3.1 Full Support for Descending and non time based leaderboards
+4. Better UI/UX (Darkmode, toasts, loading indicators.. )
+5. Better REST rotue names and structure (filenames are weird rn)
+6. Dont have all the client js in one file
+
 
 ## Links
 
