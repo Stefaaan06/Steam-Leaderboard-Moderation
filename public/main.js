@@ -187,6 +187,7 @@ function renderEntriesTable(entries, playerNameMap) {
 
     entries.forEach((entry) => {
         const tr = document.createElement("tr");
+        tr.dataset.steamid = entry.steamid;
         tr.classList.add("border-b", "hover:bg-gray-50");
 
         const rankTd = document.createElement("td");
@@ -401,7 +402,7 @@ async function doRemoveEntry() {
         });
         const data = await response.json();
         if (data.success) {
-            loadCurrentPage();
+            await loadCurrentPage();
         } else {
             displayError("Error removing entry: " + data.error, 601);
         }
